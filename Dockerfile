@@ -70,8 +70,8 @@ RUN apt-get update && \
     #
     # Cleanup curl (was only needed for downloading artifacts)
     #
-    apt-get remove --purge --autoremove --yes \
-      curl && \
+    #apt-get remove --purge --autoremove --yes \
+    #  curl && \
     rm -rf /var/lib/apt/lists/* && \
     #
     # Provide dedicated user for running the image
