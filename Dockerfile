@@ -87,8 +87,7 @@ RUN apt-get update && \
             --comment 'SAP-MTA tooling' \
             --password "$(echo weUseMta |openssl passwd -1 -stdin)" mta && \
     # allow anybody to write into the images HOME
-    chmod a+w "${MTA_USER_HOME}" 
-
+    chmod a+w "${MTA_USER_HOME}" && \
     #
     # Provide dedicated user for running the image
     #
