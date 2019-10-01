@@ -89,6 +89,17 @@ RUN apt-get update && \
     # allow anybody to write into the images HOME
     chmod a+w "${MTA_USER_HOME}" 
 
+    #
+    # Provide dedicated user for running the image
+    #
+    useradd --home-dir "${MTA_USER_HOME}" \
+            --shell /bin/bash \
+            --user-group \
+            --uid 1001 \
+            --comment 'Azure user' \
+            --password "$(echo weUseMta |openssl passwd -1 -stdin)" vsts_azpcontainer 
+            
+
 WORKDIR /project
 
 ENV PATH=./node_modules/.bin:$PATH
