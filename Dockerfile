@@ -96,7 +96,7 @@ RUN apt-get update && \
             --user-group \
             --uid 1001 \
             --comment 'Azure user' \
-            --password "$(echo weUseMta |openssl passwd -1 -stdin)" vsts_azpcontainer 
+            --password "$(echo weUseMta |openssl passwd -1 -stdin)" azure
             
 
 WORKDIR /project
