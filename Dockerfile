@@ -99,6 +99,10 @@ RUN apt-get update && \
             --password "$(echo weUseMta |openssl passwd -1 -stdin)" azure
             
 
+LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
+
+CMD [ "node" ]
+
 WORKDIR /project
 
 ENV PATH=./node_modules/.bin:$PATH
